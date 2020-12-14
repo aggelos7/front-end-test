@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>{{ isNewUser ? 'Create User' : isViewUser ? 'View User' : 'Edit User' }}</h2>
+<mat-dialog-content>
+    <div fxLayout="row" class="mb-8">
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Name"
+                [(ngModel)]="selectedUser.name" readonly="{{ isViewUser ? true : false }}">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" class="mb-8">
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Email"
+                [(ngModel)]="selectedUser.email" readonly="{{ isViewUser ? true : false }}">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" class="mb-8">
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Phone" [(ngModel)]="selectedUser.phone" readonly="{{ isViewUser ? true : false }}">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" class="mb-44">
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Username" [(ngModel)]="selectedUser.username" readonly="{{ isViewUser ? true : false }}">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" class="mb-44">
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Website" [(ngModel)]="selectedUser.website" readonly="{{ isViewUser ? true : false }}">
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button class="mat-accent" (click)="save()" *ngIf="!isViewUser">Save</button>
+    <button mat-raised-button class="mat-primary" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
